@@ -4,10 +4,11 @@ public class Employee {
 
      private String id;
      private String name;
-     private double baseSalary;
+     private final double baseSalary;
      private int yearsWorked;
      private String department;
      private boolean isFullTime;
+     private double currentSalary;
 
      public Employee (String id, String name, double baseSalary, int yearsWorked, String department, boolean isFullTime){
           this.id = id;
@@ -16,5 +17,6 @@ public class Employee {
           this.yearsWorked = yearsWorked;
           this.department = department;
           this.isFullTime = isFullTime;
+          this.currentSalary = baseSalary;
      }
 }
