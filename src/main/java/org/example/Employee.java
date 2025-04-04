@@ -73,27 +73,27 @@ public class Employee {
      }
 
      public void ajustePorAntiguedad(){
-          double newSalary = this.getCurrentSalary();
+          double newSalary = this.currentSalary;
 
-          if (this.getYearsWorked() > 5) {
-               newSalary += this.getCurrentSalary() * 0.1;
+          if (this.yearsWorked > 5) {
+               newSalary += this.currentSalary * 0.1;
           } else if (this.getYearsWorked() > 2) {
-               newSalary += this.getCurrentSalary() * 0.05;
+               newSalary += this.currentSalary * 0.05;
           }
 
           this.setCurrentSalary(newSalary);
      }
 
      public void ajustePorDepartamento(boolean isEndOfYear){
-          double newSalary = this.getCurrentSalary();
+          double newSalary = this.currentSalary;
 
-          if (this.getDepartment().equals("IT")) {
+          if (this.department.equals("IT")) {
                if (isEndOfYear) {
                     newSalary += 1000;
                } else {
                     newSalary += 500;
                }
-          } else if (this.getDepartment().equals("HR")) {
+          } else if (this.department.equals("HR")) {
                newSalary += 300;
           }
 
@@ -101,15 +101,14 @@ public class Employee {
      }
 
      public void ajustePorImpuestos (){
-          double currentSalary = this.getCurrentSalary();
-          double newSalary = this.getCurrentSalary();
+          double newSalary = this.currentSalary;
 
-          if (currentSalary > 50000) {
-               newSalary -= currentSalary * 0.3;
-          } else if (currentSalary > 30000) {
-               newSalary -= currentSalary * 0.2;
+          if (this.currentSalary > 50000) {
+               newSalary -= this.currentSalary * 0.3;
+          } else if (this.currentSalary > 30000) {
+               newSalary -= this.currentSalary * 0.2;
           } else {
-               newSalary -= currentSalary * 0.1;
+               newSalary -= this.currentSalary * 0.1;
           }
 
           this.setCurrentSalary(newSalary);
