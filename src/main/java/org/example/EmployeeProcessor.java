@@ -37,12 +37,15 @@ public class EmployeeProcessor {
 
                 //Ajustes por impuestos
                 if (applyTax) {
-                    if (salary > 50000) {
-                        salary -= salary * 0.3;
-                    } else if (salary > 30000) {
-                        salary -= salary * 0.2;
+                    if (employee.getCurrentSalary() > 50000) {
+                        newSalary = employee.getCurrentSalary() - employee.getCurrentSalary() * 0.3;
+                        employee.setCurrentSalary(newSalary);
+                    } else if (employee.getCurrentSalary() > 30000) {
+                        newSalary = employee.getCurrentSalary() - employee.getCurrentSalary() * 0.2;
+                        employee.setCurrentSalary(newSalary);
                     } else {
-                        salary -= salary * 0.1;
+                        newSalary = employee.getCurrentSalary() - employee.getCurrentSalary() * 0.1;
+                        employee.setCurrentSalary(newSalary);
                     }
                 }
             } else {
