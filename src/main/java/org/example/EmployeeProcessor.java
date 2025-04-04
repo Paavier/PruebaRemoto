@@ -21,14 +21,17 @@ public class EmployeeProcessor {
 
                 //Ajustes por bonus de departamento
                 if (applyBonus) {
-                    if (department.equals("IT")) {
+                    if (employee.getDepartment().equals("IT")) {
                         if (isEndOfYear) {
-                            salary += 1000;
+                            newSalary = employee.getCurrentSalary() + 1000;
+                            employee.setCurrentSalary(newSalary);
                         } else {
-                            salary += 500;
+                            newSalary = employee.getCurrentSalary() + 500;
+                            employee.setCurrentSalary(newSalary);
                         }
-                    } else if (department.equals("HR")) {
-                        salary += 300;
+                    } else if (employee.getDepartment().equals("HR")) {
+                        newSalary = employee.getCurrentSalary() + 300;
+                        employee.setCurrentSalary(newSalary);
                     }
                 }
 
