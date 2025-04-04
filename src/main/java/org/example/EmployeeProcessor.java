@@ -2,7 +2,7 @@ package org.example;
 
 import java.util.List;
 
-public class EmployeeProcessor extends Employee {
+public class EmployeeProcessor {
 
     public Object[] calculateSalaries(List<Object[]> employees, boolean applyBonus, boolean applyTax, boolean isEndOfYear) {
         Object[] result = new Object[employees.size()];
