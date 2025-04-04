@@ -12,10 +12,10 @@ public class EmployeeProcessor {
             if (employee.isFullTime()) {
                 //Ajustes por antiguedad
                 if (employee.getYearsWorked() > 5) {
-                    newSalary = employee.getCurrentSalary() * 0.1;
+                    newSalary = employee.getCurrentSalary() + employee.getCurrentSalary() * 0.1;
                     employee.setCurrentSalary(newSalary);
                 } else if (employee.getYearsWorked() > 2) {
-                    newSalary = employee.getCurrentSalary() * 0.05;
+                    newSalary = employee.getCurrentSalary() + employee.getCurrentSalary() * 0.05;
                     employee.setCurrentSalary(newSalary);
                 }
 
