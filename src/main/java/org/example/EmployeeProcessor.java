@@ -4,27 +4,22 @@ import java.util.List;
 
 public class EmployeeProcessor {
 
-    public Object[] calculateSalaries(List<Object[]> employees, boolean applyBonus, boolean applyTax, boolean isEndOfYear) {
-        Object[] result = new Object[employees.size()];
+    public Object[] calculateSalaries(List<Employee> employees, boolean applyBonus, boolean applyTax, boolean isEndOfYear) {
+        for (Employee employee : employees) {
 
-        for (int i = 0; i < employees.size(); i++) {
-            Object[] emp = employees.get(i);
-            String id = (String) emp[0];
-            String name = (String) emp[1];
-            double baseSalary = (double) emp[2];
-            int years = (int) emp[3];
-            String department = (String) emp[4];
-            boolean isFullTime = (boolean) emp[5];
+            double newSalary;
 
-            double salary = baseSalary;
-
-            if (isFullTime) {
-                if (years > 5) {
-                    salary += salary * 0.1;
-                } else if (years > 2) {
-                    salary += salary * 0.05;
+            if (employee.isFullTime()) {
+                //Ajustes por antiguedad
+                if (employee.getYearsWorked() > 5) {
+                    newSalary = employee.getCurrentSalary() * 0.1;
+                    employee.setCurrentSalary(newSalary);
+                } else if (employee.getYearsWorked() > 2) {
+                    newSalary = employee.getCurrentSalary() * 0.05;
+                    employee.setCurrentSalary(newSalary);
                 }
 
+                //Ajustes por bonus de departamento
                 if (applyBonus) {
                     if (department.equals("IT")) {
                         if (isEndOfYear) {
@@ -37,6 +32,7 @@ public class EmployeeProcessor {
                     }
                 }
 
+                //Ajustes por impuestos
                 if (applyTax) {
                     if (salary > 50000) {
                         salary -= salary * 0.3;
