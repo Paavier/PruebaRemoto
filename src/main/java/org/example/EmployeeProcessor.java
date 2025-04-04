@@ -14,7 +14,7 @@ public class EmployeeProcessor {
 
                 //Ajustes por bonus de departamento
                 if (applyBonus) {
-                    ajustePorDepartamento(employee, isEndOfYear);
+                    employee.ajustePorDepartamento(isEndOfYear);
                 }
 
                 //Ajustes por impuestos
@@ -31,21 +31,7 @@ public class EmployeeProcessor {
         }
     }
 
-    private void ajustePorDepartamento(Employee employee, boolean isEndOfYear){
-        double newSalary = employee.getCurrentSalary();
 
-        if (employee.getDepartment().equals("IT")) {
-            if (isEndOfYear) {
-                newSalary += 1000;
-            } else {
-                newSalary += 500;
-            }
-        } else if (employee.getDepartment().equals("HR")) {
-            newSalary += 300;
-        }
-
-        employee.setCurrentSalary(newSalary);
-    }
 
     private void ajustePorImpuestos (Employee employee){
         double currentSalary = employee.getCurrentSalary();

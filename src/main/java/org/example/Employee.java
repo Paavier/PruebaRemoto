@@ -83,4 +83,20 @@ public class Employee {
 
           this.setCurrentSalary(newSalary);
      }
+
+     public void ajustePorDepartamento(boolean isEndOfYear){
+          double newSalary = this.getCurrentSalary();
+
+          if (this.getDepartment().equals("IT")) {
+               if (isEndOfYear) {
+                    newSalary += 1000;
+               } else {
+                    newSalary += 500;
+               }
+          } else if (this.getDepartment().equals("HR")) {
+               newSalary += 300;
+          }
+
+          this.setCurrentSalary(newSalary);
+     }
 }
