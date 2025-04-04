@@ -4,7 +4,7 @@ import java.util.List;
 
 public class EmployeeProcessor {
 
-    public Object[] calculateSalaries(List<Employee> employees, boolean applyBonus, boolean applyTax, boolean isEndOfYear) {
+    public void calculateSalaries(List<Employee> employees, boolean applyBonus, boolean applyTax, boolean isEndOfYear) {
         for (Employee employee : employees) {
 
             double newSalary;
@@ -50,18 +50,10 @@ public class EmployeeProcessor {
                 }
             } else {
                 if (applyBonus && isEndOfYear) {
-                    salary += 200;
+                    newSalary = employee.getCurrentSalary() + 200;
+                    employee.setCurrentSalary(newSalary);
                 }
             }
-
-            Object[] processedEmp = new Object[3];
-            processedEmp[0] = id;
-            processedEmp[1] = name;
-            processedEmp[2] = salary;
-
-            result[i] = processedEmp;
         }
-
-        return result;
     }
 }
