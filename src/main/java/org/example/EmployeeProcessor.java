@@ -19,7 +19,7 @@ public class EmployeeProcessor {
 
                 //Ajustes por impuestos
                 if (applyTax) {
-                    ajustePorImpuestos(employee);
+                    employee.ajustePorImpuestos();
                 }
 
             } else {
@@ -29,22 +29,5 @@ public class EmployeeProcessor {
                 }
             }
         }
-    }
-
-
-
-    private void ajustePorImpuestos (Employee employee){
-        double currentSalary = employee.getCurrentSalary();
-        double newSalary = employee.getCurrentSalary();
-
-        if (currentSalary > 50000) {
-            newSalary -= currentSalary * 0.3;
-        } else if (currentSalary > 30000) {
-            newSalary -= currentSalary * 0.2;
-        } else {
-            newSalary -= currentSalary * 0.1;
-        }
-
-        employee.setCurrentSalary(newSalary);
     }
 }

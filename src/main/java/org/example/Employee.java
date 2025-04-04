@@ -99,4 +99,19 @@ public class Employee {
 
           this.setCurrentSalary(newSalary);
      }
+
+     public void ajustePorImpuestos (){
+          double currentSalary = this.getCurrentSalary();
+          double newSalary = this.getCurrentSalary();
+
+          if (currentSalary > 50000) {
+               newSalary -= currentSalary * 0.3;
+          } else if (currentSalary > 30000) {
+               newSalary -= currentSalary * 0.2;
+          } else {
+               newSalary -= currentSalary * 0.1;
+          }
+
+          this.setCurrentSalary(newSalary);
+     }
 }
