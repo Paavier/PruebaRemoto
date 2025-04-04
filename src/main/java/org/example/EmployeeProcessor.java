@@ -11,13 +11,7 @@ public class EmployeeProcessor {
 
             if (employee.isFullTime()) {
                 //Ajustes por antiguedad
-                if (employee.getYearsWorked() > 5) {
-                    newSalary = employee.getCurrentSalary() + employee.getCurrentSalary() * 0.1;
-                    employee.setCurrentSalary(newSalary);
-                } else if (employee.getYearsWorked() > 2) {
-                    newSalary = employee.getCurrentSalary() + employee.getCurrentSalary() * 0.05;
-                    employee.setCurrentSalary(newSalary);
-                }
+                ajustePorAntiguedad(employee);
 
                 //Ajustes por bonus de departamento
                 if (applyBonus) {
@@ -55,5 +49,17 @@ public class EmployeeProcessor {
                 }
             }
         }
+    }
+
+    private void ajustePorAntiguedad(Employee employee){
+        double newSalary = employee.getCurrentSalary();
+
+        if (employee.getYearsWorked() > 5) {
+            newSalary += employee.getCurrentSalary() * 0.1;
+        } else if (employee.getYearsWorked() > 2) {
+            newSalary += employee.getCurrentSalary() * 0.05;
+        }
+
+        employee.setCurrentSalary(newSalary);
     }
 }
