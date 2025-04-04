@@ -71,4 +71,16 @@ public class Employee {
                throw new IllegalArgumentException("El salario no puede ser negativo");
           this.currentSalary = currentSalary;
      }
+
+     public void ajustePorAntiguedad(){
+          double newSalary = this.getCurrentSalary();
+
+          if (this.getYearsWorked() > 5) {
+               newSalary += this.getCurrentSalary() * 0.1;
+          } else if (this.getYearsWorked() > 2) {
+               newSalary += this.getCurrentSalary() * 0.05;
+          }
+
+          this.setCurrentSalary(newSalary);
+     }
 }
